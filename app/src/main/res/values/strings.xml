@@ -7,6 +7,12 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
+    <string name="fan_off">off</string>
+    <string name="fan_low">1</string>
+    <string name="fan_medium">2</string>
+    <string name="fan_high">3</string>
+
+
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
