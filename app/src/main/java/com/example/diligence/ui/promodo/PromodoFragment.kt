@@ -48,7 +48,6 @@ class PromodoFragment : Fragment() {
                 val min = millisUntilFinished / 60000 % 60
                 val sec = millisUntilFinished / 1000 % 60
                 binding.progressBar.progress = ((millisUntilFinished / 1500) * 100) .toInt()
-                progressValue = ((millisUntilFinished / 1500) * 100) .toInt()
                 binding.countDownTextView.text = "$min:$sec"
             }
             override fun onFinish() {
