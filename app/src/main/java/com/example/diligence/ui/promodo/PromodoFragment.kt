@@ -1,4 +1,4 @@
-package com.example.diligence
+package com.example.diligence.ui.promodo
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
