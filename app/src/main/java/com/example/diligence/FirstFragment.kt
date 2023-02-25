@@ -6,14 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
 import com.example.diligence.databinding.FragmentFirstBinding
+import kotlin.time.Duration.Companion.seconds
 
 class FirstFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
     private val binding get() = _binding!!
-    private val MOCK_TIMOUT : Long = 2 * 60000
+    private val MOCK : Long = 10000
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,17 +26,19 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.progressBar.max = MOCK_TIMOUT.toInt()
+        binding.progressBar.max = MOCK.toInt()
 
-        object: CountDownTimer(MOCK_TIMOUT, 10){
+        object: CountDownTimer(MOCK, 10){
             override fun onTick(millisUntilFinished: Long) {
                 binding.progressBar.progress = millisUntilFinished.toInt()
+                binding.progressBarTextView.text = "${(millisUntilFinished/1000).seconds}"
             }
 
             override fun onFinish() {
-                binding.progressBar.progress = 1000
+                binding.progressBar.setProgress(binding.progressBar.max,true)
+                binding.progressBarTextView.text = "00:00"
             }
-        }.start()
+        }
     }
 
     override fun onDestroyView() {
